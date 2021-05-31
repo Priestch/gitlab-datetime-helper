@@ -6,6 +6,7 @@
 // @author       Priestch
 // @match        https://gitpd.paodingai.com/*
 // @grant        none
+// @downloadURL  https://raw.githubusercontent.com/Priestch/gitlab-datetime-helper/master/src/index.js
 // ==/UserScript==
 
 (function() {
