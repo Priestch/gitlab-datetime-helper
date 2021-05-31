@@ -2,7 +2,7 @@
 // @name         Show Absolute Datetime in Gitlab
 // @namespace    http://tampermonkey.net/
 // @version      0.3.2
-// @description  try to take over the world!
+// @description  Show absolute datetime in custom gitlab page.
 // @author       Priestch
 // @match        https://gitpd.paodingai.com/*
 // @grant        none
