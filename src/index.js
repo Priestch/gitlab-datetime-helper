@@ -78,6 +78,10 @@
   }
 
   function getDatetime(el) {
+    if (el.tagName === 'TIME') {
+      return el.getAttribute('datetime');
+    }
+
     return el.dataset.title;
   }
 
