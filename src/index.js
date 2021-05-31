@@ -76,6 +76,10 @@
     return datetimeString;
   }
 
+  function getDatetime(el) {
+    return el.dataset.title;
+  }
+
   function formatDatetime(datetime) {
     const month = padStart(`${datetime.getMonth() + 1}`, 2, '0');
     const day = padStart(`${datetime.getDate()}`, 2, '0');
@@ -99,7 +103,7 @@
         if (timeChildren.length > 0) {
           for (let t of timeChildren) {
             if (!t.textContent.match(datetimeFormatPattern)) {
-              const parsedDatetime = Date.parse(parseDatetime(t.dataset.originalTitle));
+              const parsedDatetime = Date.parse(parseDatetime(getDatetime(t)));
               // check originalTitle match pattern
               t.textContent = formatDatetime(new Date(parsedDatetime));
             }
@@ -112,7 +116,7 @@
           if (mutation.type == 'childList' && mutation.target.nodeName === 'TIME') {
             if (!mutation.target.textContent.match(datetimeFormatPattern)) {
               const utcDatetime = mutation.target.getAttribute('datetime');
-              const textContent = utcDatetime ? formatDatetime(new Date(utcDatetime)) : mutation.target.dataset.originalTitle;
+              const textContent = utcDatetime ? formatDatetime(new Date(utcDatetime)) : getDatetime(mutation.target);
               mutation.target.textContent = textContent;
             }
           }
@@ -128,7 +132,7 @@
 
     const relativeDatetimeElements = document.getElementsByTagName('time');
     for (let element of relativeDatetimeElements) {
-      element.textContent = element.dataset.originalTitle;
+      element.textContent = getDatetime(element);
     }
   }
 })();
