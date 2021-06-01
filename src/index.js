@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Show Absolute Datetime in Gitlab
 // @namespace    http://tampermonkey.net/
-// @version      0.3.3
+// @version      0.3.4
 // @description  Show absolute datetime in custom gitlab page.
 // @author       Priestch
 // @match        https://gitpd.paodingai.com/*
