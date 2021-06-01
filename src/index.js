@@ -111,9 +111,11 @@
         if (timeChildren.length > 0) {
           for (let t of timeChildren) {
             if (!t.textContent.match(datetimeFormatPattern)) {
-              const parsedDatetime = Date.parse(parseDatetime(getDatetime(t)));
-              // check originalTitle match pattern
-              t.textContent = formatDatetime(new Date(parsedDatetime));
+              const datetimeValue = getDatetime(t);
+              if (datetimeValue) {
+                const parsedDatetime = Date.parse(parseDatetime(datetimeValue));
+                t.textContent = formatDatetime(new Date(parsedDatetime));
+              }
             }
           }
           continue;
