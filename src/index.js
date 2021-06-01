@@ -79,10 +79,13 @@
 
   function getDatetime(el) {
     if (el.tagName === 'TIME') {
-      return el.getAttribute('datetime');
+      const datetimeAttr = el.getAttribute('datetime');
+      if (datetimeAttr !== 'date') {
+        return datetimeAttr;
+      }
     }
 
-    return el.dataset.title;
+    return el.dataset.title || el.dataset.originalTitle;
   }
 
   function formatDatetime(datetime) {
